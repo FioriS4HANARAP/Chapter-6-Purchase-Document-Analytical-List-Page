@@ -1,0 +1,156 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='ER9CLNT001')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='ER9CLNT001')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='ER9CLNT001')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/z_c_purchasingdocumentsalp_cds/$metadata"><edmx:Include Namespace="Z_C_PURCHASINGDOCUMENTSALP_CDS" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="z_c_purchasingdocumentsalp_c_van.v1">
+			<Annotations Target="Z_C_PURCHASINGDOCUMENTSALP_CDS.Z_C_PURCHASINGDOCUMENTSALPType/TotaledProperties"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="Z_C_PURCHASINGDOCUMENTSALP_CDS.Z_C_PURCHASINGDOCUMENTSALPType">
+				<Annotation Term="UI.Chart" Qualifier="ChartDefault">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Status</PropertyPath>
+								<PropertyPath>Priority</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Status"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Priority"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>OverallItemPrice</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="OverallItemPrice"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartDocumentsByStatus">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Status</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Status"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>TotalNumberofDocuments</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="TotalNumberofDocuments"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartDocumentsByPriority">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>PurchaseDocument</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="PurchaseDocument"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Priority</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="Priority"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="Priority">
+					<Record><PropertyValue Property="Value" Path="Priority"/><PropertyValue Property="Title" String="Prioirity"/></Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="Status">
+					<Record><PropertyValue Property="Value" Path="Status"/><PropertyValue Property="Title" String="Status"/></Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="TotalNumberofDocuments">
+					<Record><PropertyValue Property="Value" Path="TotalNumberofDocuments"/><PropertyValue Property="Title" String="TotalNumberofDocuments"/><PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Number"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Description"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="OverallItemPrice"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Description"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Priority"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="PriorityText"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Status"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="StatusText"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="TotalNumberofDocuments"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="OverallItemPrice"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="Default">
+					<Record>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#ChartDefault</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="FilterByStatus">
+					<Record><PropertyValue Property="Text" String="Filter: Documents By Status"/>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.DataPoint#TotalNumberofDocuments</AnnotationPath>
+								<AnnotationPath>@UI.Chart#ChartDocumentsByStatus</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPIDocumentsByPriority">
+					<Record><PropertyValue Property="Text" String="KPI: Number of Documents per Priority"/>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.DataPoint#Priority</AnnotationPath>
+								<AnnotationPath>@UI.Chart#ChartDocumentsByPriority</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>Status</PropertyPath>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPIDocumentsByPriority">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPIDocumentsByPriority"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPIDocumentsByPriority"/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="KPIDocumentsByPriority">
+					<Record><PropertyValue Property="Text" String="KPI Documents By Priority"/></Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
